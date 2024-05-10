@@ -23,27 +23,17 @@ def get_word_count(text):
     return len(words)
 
 def get_letter_count(text):
-    this_text = text
-    lowered_string = this_text.lower()
+    chars = {}
 
-    #problem:
-    #count the letters that shows up in the lowered string
-    #first is to create a list of alphabets
-    #then count each word that appear in the lowered strings for each alphabets
-
-    counter = 0
-    alph = "abcdefghijklmnopqrstuvwxyz"
-    this_character = list(alph)
-    this_character_dict = {}
-
-    for i in range (0, 26):
-        this_character_dict[this_character[i]] = 0
-        i += 1
-    
-    #using dictionary to count the number of words that appear in frankenstein text
-    
-
-    return this_character
+    # loop through the text
+    for c in text:
+        lowered = c.lower()
+        # Check if there is text in dictionary chars
+        if lowered in chars:
+            chars[lowered] += 1
+        else:
+            chars[lowered] = 1
+    return chars
 
 #I am still not familiar with STDIN, this is boot dev implementation
 def get_book_text(path):
